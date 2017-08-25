@@ -1,0 +1,23 @@
+escape  "^Tt"                         # ctrl-A default interferes with emacs keybindings for terminal
+
+# Emacs compatibility
+# Easy switching of windows without p/n confusion, as ctrl-p and ctrl-n
+# are frequently used in emacs but u/j are not...
+bind 'u' prev
+bind ^U prev
+bind 'j' next
+bind ^J next
+
+
+sorendition "+b kG"
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
+
+screen -t shell 1
+screen -t shell 2
+screen -t Editor 3
+screen -t shell 4
+screen -t log 5
+screen -t shell 6
