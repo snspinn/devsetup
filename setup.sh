@@ -6,7 +6,7 @@ sudo apt-get install emacs24 -y
 # Install npm
 sudo apt-get install npm -y
 # Install globally eslint, babel-eslint, eslint-plugin-react
-sudp npm install -g eslint babel-eslint eslint-plugin-react
+sudo npm install -g eslint babel-eslint eslint-plugin-react
 
 # Install Docker and Docker Compose
 sudo apt-get install docker.io -y

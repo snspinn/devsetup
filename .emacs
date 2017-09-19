@@ -1,4 +1,6 @@
-;;; Code
+
+;;; Code:
+
 (add-to-list 'load-path "~/.emacs.d/")
 (load-library "init")
 
@@ -78,7 +80,7 @@
 (flycheck-add-mode 'javascript-eslint 'web-mode)
 
 ;; customize flycheck temp file prefix
-(setq-default flycheck-temp-prefix ".flycheck")
+;;(setq-default flycheck-temp-prefix ".flycheck")
 
 ;; disable json-jsonlist checking for json files
 (setq-default flycheck-disabled-checkers
@@ -91,4 +93,4 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-
+;;; .emacs ends here
