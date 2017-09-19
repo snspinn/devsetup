@@ -12,9 +12,9 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 ; list the packages you want
-(setq package-list '(paren web-mode))
+(setq package-list '(paren web-mode flycheck js2-mode json-mode exec-path-from-shell))
 
-; activate all the packages
+; Activate all the packages
 (package-initialize)
 
 ; fetch the list of packages available
