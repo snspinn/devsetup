@@ -12,7 +12,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 ; list the packages you want
-(setq package-list '(paren web-mode flycheck json-mode exec-path-from-shell))
+; (setq package-list '(paren web-mode flycheck json-mode exec-path-from-shell prettier-js))
+(setq package-list '(paren web-mode json-mode))
 
 ; Activate all the packages
 (package-initialize)
