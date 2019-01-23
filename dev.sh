@@ -26,8 +26,7 @@ sudo ./get-docker.sh
 sudo usermod -aG docker $USER
 
 # Install Docker Compose
-dockerComposeVersion=$DOCKERCOMPOSEVERSION
-sudo curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Install Node JS
@@ -48,3 +47,8 @@ cd npmlocalregistry
 docker-compose up -d
 cd ..
 
+# Setup a Docker Registry
+# git clone http://github.com/michaelgodley/dockerregistry.git
+# cd dockerregistry
+# docker-compose up -d
+# cd ..
