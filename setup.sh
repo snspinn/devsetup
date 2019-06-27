@@ -12,7 +12,7 @@ sudo npm install -g eslint babel-eslint eslint-plugin-react
 sudo apt-get install docker.io -y
 sudo usermod -aG docker $USER
 
-dockerComposeVersion="${dockerComposeVersion:-1.14.0}"
+dockerComposeVersion="${dockerComposeVersion:-1.24.0}"
 sudo curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
