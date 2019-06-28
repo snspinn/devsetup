@@ -1,6 +1,9 @@
 #!/bin/bash
 set -x
 
+# source some env variables
+. config.conf
+
 # Update the OS
 sudo apt update
 sudo apt upgrade -y
@@ -18,10 +21,7 @@ sudo usermod -aG docker $USER
 
 # Install Docker Compose
 sudo rm /usr/local/bin/docker-compose 
-dockerComposeVersion="${dockerComposeVersion:-1.24.0}"
-//dockerComposeVersion=$DOCKERCOMPOSEVERSION
-
-sudo curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 

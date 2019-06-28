@@ -1,26 +1,12 @@
 #!/bin/bash
 set -x
+
+# source some env variables
 . config.conf
 
 # Update the OS
 sudo apt update
 sudo apt upgrade -y
-
-# Install utilities
-suso apt install make -y
-
-# Install Emacs
-sudo apt install emacs25 -y
-mkdir -p  $HOME/tools
-cd $HOME/tools
-git clone https://github.com/michaelgodley/emacs.git
-
-# Setup soft links to config files
-dir="$(pwd)"
-cd $HOME
-ln -sb $HOME/tools/emacs/.emacs .
-ln -sb $HOME/tools/emacs/.emacs.d .
-ln -sb $dir/.screenrc .
 
 # Install Docker and Docker Compose
 sudo apt remove -y docker docker-engine docker.io docker-ce containerd runc
@@ -33,10 +19,14 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# dockerComposeVersion="${dockerComposeVersion:-1.24.0}"
-dockerComposeVersion=$DOCKER_COMPOSE_VERSION
-sudo curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+# Install Docker Compose
+sudo rm /usr/local/bin/docker-compose 
+sudo curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+# Setup screen
+dir="$(pwd)"
+ln -sb $dir/.screenrc .
 
 # Install Node JS
 curl -sL https://deb.nodesource.com/setup_$NODE_VERSION | sudo -E bash -
@@ -49,6 +39,17 @@ sudo apt install -y nodejs
 #npm set init.author.email $NPM_INIT_AUTHOR_EMAIL
 #npm set init.license $NPM_INIT_LICENSE
 #npm set init.version $NPM_INIT_VERSION
+
+# Install utilities
+sudo apt install make -y
+
+# Install Emacs
+sudo apt install emacs25 -y
+mkdir -p  $HOME/tools
+cd $HOME/tools
+git clone https://github.com/michaelgodley/emacs.git
+ln -sb $HOME/tools/emacs/.emacs .
+ln -sb $HOME/tools/emacs/.emacs.d .
 
 # Setup a Local NPM Registry
 cd $HOME/tools
