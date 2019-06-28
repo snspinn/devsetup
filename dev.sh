@@ -26,7 +26,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Setup screen
 dir="$(pwd)"
-ln -sb $dir/.screenrc .
+ln -sb $dir/.screenrc $HOME/.
 
 # Install Node JS
 curl -sL https://deb.nodesource.com/setup_$NODE_VERSION | sudo -E bash -
@@ -48,8 +48,8 @@ sudo apt install emacs25 -y
 mkdir -p  $HOME/tools
 cd $HOME/tools
 git clone https://github.com/michaelgodley/emacs.git
-ln -sb $HOME/tools/emacs/.emacs .
-ln -sb $HOME/tools/emacs/.emacs.d .
+ln -sb $HOME/tools/emacs/.emacs $HOME/.
+ln -sb $HOME/tools/emacs/.emacs.d $HOME/.
 
 # Setup a Local NPM Registry
 cd $HOME/tools
