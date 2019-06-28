@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+. config.conf
 
 # Update the OS
 sudo apt update
@@ -10,13 +11,15 @@ suso apt install make -y
 
 # Install Emacs
 sudo apt install emacs25 -y
+mkdir -p  $HOME/tools
+cd $HOME/tools
 git clone https://github.com/michaelgodley/emacs.git
 
 # Setup soft links to config files
 dir="$(pwd)"
 cd $HOME
-ln -sb $HOME/emacs/.emacs .
-ln -sb $HOME/emacs/.emacs.d .
+ln -sb $HOME/tools/emacs/.emacs .
+ln -sb $HOME/tools/emacs/.emacs.d .
 ln -sb $dir/.screenrc .
 
 # Install Docker and Docker Compose
@@ -30,13 +33,13 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-dockerComposeVersion="${dockerComposeVersion:-1.24.0}"
-# dockerComposeVersion=$DOCKERCOMPOSEVERSION
+# dockerComposeVersion="${dockerComposeVersion:-1.24.0}"
+dockerComposeVersion=$DOCKER_COMPOSE_VERSION
 sudo curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Install Node JS
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_$NODE_VERSION | sudo -E bash -
 sudo apt install -y nodejs
 
 # set git and npm variables
@@ -48,10 +51,11 @@ sudo apt install -y nodejs
 #npm set init.version $NPM_INIT_VERSION
 
 # Setup a Local NPM Registry
+cd $HOME/tools
 git clone http://github.com/michaelgodley/npmlocalregistry.git
 cd npmlocalregistry
 docker-compose up -d
-cd ..
+cd $dir
 
 # Setup a Docker Registry
 # git clone http://github.com/michaelgodley/dockerregistry.git
