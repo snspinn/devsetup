@@ -63,3 +63,5 @@ cd $dir
 # cd dockerregistry
 # docker-compose up -d
 # cd ..
+npm install yeoman -g
+
