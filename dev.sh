@@ -33,8 +33,8 @@ curl -sL https://deb.nodesource.com/setup_$NODE_VERSION | sudo -E bash -
 sudo apt install -y nodejs
 
 # set git and npm variables
-#git config --global user.name $GIT_USER_NAME
-#git config --global user.email $GIT_USER_EMAIL
+git config --global user.name $GIT_USER_NAME
+git config --global user.email $GIT_USER_EMAIL
 #npm set init.author.name $NPM_INIT_AUTHOR_NAME
 #npm set init.author.email $NPM_INIT_AUTHOR_EMAIL
 #npm set init.license $NPM_INIT_LICENSE
@@ -63,5 +63,5 @@ cd $dir
 # cd dockerregistry
 # docker-compose up -d
 # cd ..
-npm install yeoman -g
+sudo npm install yeoman -g
 
