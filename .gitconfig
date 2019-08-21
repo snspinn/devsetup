@@ -1,0 +1,17 @@
+[user]
+	name = Mike Godley
+  email = michaelgodley@gmail.com
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[color "status"]
+  added = green
+  changed = blue
+  untracked = yellow
+[color "diff"]
+  meta = yellow
+  old = red
+  new = green
+[core]
+  editor = vim
