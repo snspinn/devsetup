@@ -1,5 +1,5 @@
 [user]
-	name = Mike Godley
+  name = Mike Godley
   email = michaelgodley@gmail.com
 [color]
   diff = auto
@@ -13,5 +13,7 @@
   meta = yellow
   old = red
   new = green
+[commit]
+  template = ~/.gitmessage
 [core]
   editor = vim
