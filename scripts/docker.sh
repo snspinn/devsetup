@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# source some env variables
+. ../config.conf
+
 # Install Docker and Docker Compose
 sudo apt remove -y \
      docker \

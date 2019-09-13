@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Install Emacs
-sudo apt install emacs25 -y
+# Install Emacs setup
 mkdir -p  $HOME/tools
 cd $HOME/tools
 git clone https://github.com/michaelgodley/emacs.git

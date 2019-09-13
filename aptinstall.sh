@@ -19,5 +19,5 @@ install figlet
 install lolcat
 
 # Fun hello
-figlet "... and we're back!" | lolcat
+figlet "... install complete!" | lolcat
 
