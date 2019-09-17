@@ -17,6 +17,7 @@ aptinstall htop
 
 if [[ "$1" == "dev" ]]; then
     echo "Setup Development Environment"
+    aptinstall screen
     aptinstall git
     aptinstall make
     aptinstall emacs25
