@@ -5,13 +5,14 @@ if [ $# -ne 1 ];then
     exit 1
 fi
 
-# ./docker.sh
+./docker.sh
 
 cd ./scripts
 if [[ "$1" == "dev" ]]; then
     echo "Installing Development Tools"
     ./emacs.sh
     ./node.sh
+    ./npmregistry.sh
 elif [[ "$1" == "prod" ]]; then
     echo "Installing Production Tools"
     echo "None"

@@ -1,5 +1,6 @@
+#!/bin/bash
 
-function install {
+function aptinstall {
     which $1 &> /dev/null
 
     if [ $? -ne 0 ]; then
@@ -10,9 +11,17 @@ function install {
     fi
 }
 
-dotfilesDir=$(pwd)
+function aptremove {
+    sudo apt remove -y $1
+}
+
+function npminstall {
+    echo "Installing ${1}"
+    sudo npm install -g $1
+}
 
 function linkDotfile {
+    dotfilesDir=$(pwd)
     dest="${HOME}/${1}"
     dateStr=$(date +%Y-%m-%d-%H%M)
 

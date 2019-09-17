@@ -8,25 +8,26 @@ fi
 
 source $(dirname "$0")/scripts/libs.sh
 
-install figlet
-install lolcat
-install git
+aptinstall figlet
+aptinstall lolcat
+aptinstall htop
 
 if [[ "$1" == "dev" ]]; then
     echo "Setup Development Environment"
-    install htop
-    install make
-    install emacs25
+    aptinstall git
+    aptinstall make
+    apyinstall emacs25
     linkDotfile .gitmessage
     linkDotfile .gitconfig
     linkDotfile .screenrc
     ./programs.sh dev
+    npminstall yeoman
 elif [[ "$1" == "prod" ]]; then
     echo "Setup Production Environment"
     ./programs.sh prod
 fi
 
-# Fun hello
+# Print Complete
 figlet "... install complete!" | lolcat
 
 
