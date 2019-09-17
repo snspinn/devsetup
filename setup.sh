@@ -6,6 +6,9 @@ if [ $# -ne 1 ];then
     exit 1
 fi
 
+sudo apt update
+sudo apt upgrade -y
+
 source $(dirname "$0")/scripts/libs.sh
 
 aptinstall figlet
@@ -16,12 +19,12 @@ if [[ "$1" == "dev" ]]; then
     echo "Setup Development Environment"
     aptinstall git
     aptinstall make
-    apyinstall emacs25
+    aptinstall emacs25
     linkDotfile .gitmessage
     linkDotfile .gitconfig
     linkDotfile .screenrc
     ./programs.sh dev
-    npminstall yeoman
+    npminstall yo
 elif [[ "$1" == "prod" ]]; then
     echo "Setup Production Environment"
     ./programs.sh prod

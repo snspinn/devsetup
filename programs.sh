@@ -5,9 +5,9 @@ if [ $# -ne 1 ];then
     exit 1
 fi
 
+cd ./scripts
 ./docker.sh
 
-cd ./scripts
 if [[ "$1" == "dev" ]]; then
     echo "Installing Development Tools"
     ./emacs.sh
