@@ -7,4 +7,4 @@ cd $HOME/tools
 git clone https://github.com/michaelgodley/emacs.git
 cd emacs
 linkDotfile .emacs
-linkDotfile .emacs.d/
+linkDotfile .emacs.d
