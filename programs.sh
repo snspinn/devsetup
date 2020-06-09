@@ -12,7 +12,9 @@ if [[ "$1" == "dev" ]]; then
     echo "Installing Development Tools"
     ./emacs.sh
     ./node.sh
-    ./npmregistry.sh
+    ./terraform.sh
+    ./awscli.sh
+    #    ./npmregistry.sh
 elif [[ "$1" == "prod" ]]; then
     echo "Installing Production Tools"
     echo "None"
