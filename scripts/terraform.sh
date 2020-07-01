@@ -5,7 +5,7 @@ set -x
 . ./libs.sh
 
 # Get and install Terraform
-cd $HOME/temp
-sudo curl "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o "terraform.zip"
-sudo unzip ./terraform.zip
+curl "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o "terraform.zip"
+unzip ./terraform.zip
 sudo mv terraform /usr/local/bin
+rm terraform.zip

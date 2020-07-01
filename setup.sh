@@ -20,7 +20,7 @@ if [[ "$1" == "dev" ]]; then
     aptinstall screen
     aptinstall git
     aptinstall make
-    aptinstall emacs25
+    aptinstall emacs
     linkDotfile .gitmessage
     linkDotfile .gitconfig
     linkDotfile .screenrc
