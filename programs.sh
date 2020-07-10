@@ -10,13 +10,15 @@ cd ./scripts
 
 if [[ "$1" == "dev" ]]; then
     echo "Installing Development Tools"
-    ./emacs.sh
-    ./node.sh
-    ./terraform.sh
+    #./emacs.sh
+    ./node.sh  # --- REVIEW THESE ---
+    #./terraform.sh
     ./awscli.sh
+	./dev.sh
     #    ./npmregistry.sh
 elif [[ "$1" == "prod" ]]; then
     echo "Installing Production Tools"
+	#./prod.sh # --- alternative path to docker.sh ---
     echo "None"
 fi
 

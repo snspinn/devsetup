@@ -1,18 +1,18 @@
 #!/bin/bash
 
-function aptinstall {
+function yuminstall {
     which $1 &> /dev/null
 
     if [ $? -ne 0 ]; then
         echo "Installing: ${1}..."
-        sudo apt install -y $1
+        sudo yum install -y $1
     else
         echo "Already installed: ${1}"
     fi
 }
 
-function aptremove {
-    sudo apt remove -y $1
+function yumremove {
+    sudo yum remove -y $1
 }
 
 function npminstall {
@@ -24,7 +24,8 @@ function linkDotfile {
     dotfilesDir=$(pwd)
     dest="${HOME}/${1}"
     dateStr=$(date +%Y-%m-%d-%H%M)
-
+	# The -h, -f, -d flag references can be found in
+	# the `man bash` CONDITIONAL EXPRESSIONS section
     if [ -h ~/${1} ]; then
         # Existing symlink
         echo "Removing existing symlink: ${dest}"
